@@ -17,9 +17,10 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-[#f8f2ea]">
         <x-banner />
 @include('layouts.partials.header')
+@yield('hero')
         <main class="container mx-auto px-5 flex grow">
 {{ $slot }}
         </main>

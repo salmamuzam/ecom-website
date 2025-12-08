@@ -2,7 +2,7 @@
       <div class="max-w-screen-xl mx-auto">
         <div class="flex flex-wrap items-center md:justify-between max-md:flex-col gap-6">
           <div>
-            <a href='javascript:void(0)'><img src="images/white_logo.png" alt="logo" class="w-20" /></a>
+            <a href='javascript:void(0)'><img src="{{ asset ('images/white_logo.png') }}" alt="logo" class="w-20" /></a>
           </div>
 
           <ul class="flex items-center justify-center flex-wrap gap-y-2 md:justify-end space-x-6">

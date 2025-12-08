@@ -26,7 +26,7 @@
       </section>
 
       <div class="flex flex-wrap items-center justify-between py-3 px-4 sm:px-10 bg-[#004D61] lg:gap-y-4 gap-y-6 gap-x-4">
-        <a href="javascript:void(0)"><img src="images/white_logo.png" alt="logo" class="sm:w-[40px] w-[40px]" />
+        <a href="javascript:void(0)"><img src="{{ asset ('images/white_logo.png') }}" alt="logo" class="sm:w-[40px] w-[40px]" />
         </a>
 
         <div id="collapseMenu"
@@ -45,7 +45,7 @@
           <ul
             class="lg:!flex lg:gap-x-10 max-lg:space-y-3 max-lg:fixed max-lg:bg-[#004D61] max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:px-10 max-lg:py-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
             <li class="mb-6 hidden max-lg:block">
-              <a href="javascript:void(0)"><img src="images/white_logo.png" alt="logo"
+              <a href="javascript:void(0)"><img src="{{ asset ('images/white_logo.png') }}" alt="logo"
                 class="w-20" />
               </a>
             </li>
