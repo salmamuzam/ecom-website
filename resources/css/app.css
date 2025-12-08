@@ -6,11 +6,16 @@
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../vendor/laravel/jetstream/**/*.blade.php';
 @source '../../storage/framework/views/*.php';
-
+@custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --font-sans:
     Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --color-lavender: #B2A9BF
+  --color-cream: #F8F2EA
+  --color-blue: #333852
+  --color-white: #FFFFFF
 }
 
 /*
