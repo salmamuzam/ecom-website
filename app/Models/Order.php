@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Order extends Model
+{
+    protected $fillable = [
+        'product_id',
+        'user_id',
+        'status',
+        'quantity',
+        'price_per_item',
+        'total_price'
+    ];
+
+    // Every order belongs to one product
+    public function product(){
+        return $this->belongsTo(Product::class);
+    }
+
+    // Every order belongs to one user
+
+    public function user(){
+        return $this->belongsTo(user::class);
+    }
+}
