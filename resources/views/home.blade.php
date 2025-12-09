@@ -24,9 +24,9 @@
             <h2 class="text-slate-900 text-xl font-bold mb-6">Our Collection</h2>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-                @foreach($categories as $category)
+                {{-- @foreach($categories as $category)
                     <x-categories.category-card :category="$category" />
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
     </div>

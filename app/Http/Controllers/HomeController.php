@@ -16,8 +16,10 @@ class HomeController extends Controller
     {
         //  Invoke controller is used because the home controller controls one task
 
-        return view('home', [
-            'categories' => Category(3)->get()
-        ]);
+        return view('home'
+        //, [
+        //     'categories' => Category(3)->get()
+        // ]
+        );
     }
 }

@@ -1,4 +1,4 @@
-@props(['category'])
+{{-- @props(['category']) --}}
 <div class="shadow-sm bg-white p-1.5 rounded-lg overflow-hidden cursor-pointer relative hover:shadow-md">
     <a href="javascript:void(0);" class="block">
         <div class="bg-gray-200 aspect-square">
