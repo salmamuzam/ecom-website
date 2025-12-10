@@ -12,7 +12,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form wire:submit.prevent="saveProduct">
+            <form wire:submit.prevent="saveProduct" enctype="multipart/form-data">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
@@ -23,7 +23,11 @@
    </p>
 @enderror
                     </div>
-                    <div><label for="category"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label><select name="category" wire:model="category" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"><option selected="">Select category</option><option value="Abaya">Abaya</option><option value="Dress">Dress</option><option value="Hijab">Hijab</option><option value="Accessory">Accessory</option></select>            @error('category')
+                    <div><label for="category"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label><select name="category" wire:model="category" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"><option value="">Select category</option>
+                        @foreach($categories as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                        @endforeach
+                    </select>            @error('category')
    <p class="mt-2  text-[#822659]"">
         {{$message}}
    </p>

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Livewire\CategoryForm;
+use App\Livewire\CategoryList;
 use App\Livewire\ProductList;
 use App\Livewire\ProductForm;
 //use App\Http\Controllers\AdminController;
@@ -22,3 +24,6 @@ Route::middleware([
 
 Route::get('products', ProductList::class)->name('products');
 Route::get('products/create', ProductForm::class)->name('products.create');
+
+Route::get('categories', CategoryList::class)->name('categories');
+Route::get('categories/create', CategoryForm::class)->name('categories.create');
