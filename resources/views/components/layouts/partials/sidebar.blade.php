@@ -1,102 +1,121 @@
-<nav class="bg-[#004D61] h-screen fixed top-0 left-0 min-w-[260px] py-6 px-4 flex flex-col overflow-auto">
-      <div class="flex flex-wrap flex-col justify-center items-center cursor-pointer">
-        <div class=" w-12 h-12 rounded-full flex items-center justify-center">
-          <img src="{{ Auth::user()->profile_photo_url }}">
+<nav class="fixed top-0 z-50 w-full bg-[#822659] border-b border-default">
+    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center justify-start rtl:justify-end">
+                <button data-drawer-target="top-bar-sidebar" data-drawer-toggle="top-bar-sidebar"
+                    aria-controls="top-bar-sidebar" type="button"
+                    class="sm:hidden text-heading bg-[#F0F0F0] box-border border border-[#F0F0F0] hover:bg-[F0F0F0] focus:ring-3 focus:ring-[#F0F0F0] font-medium leading-5 rounded-base text-sm p-2 focus:outline-none">
+                    <span class="sr-only">Open sidebar</span>
+                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="#F0F0F0" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                            d="M5 7h14M5 12h14M5 17h10" />
+                    </svg>
+                </button>
+                <a href="" class="flex ms-2 md:me-24">
+                    <img src="{{ asset('images/white_logo.png') }}" class="h-6 me-3" alt="FlowBite Logo" />
+                    <span class="self-center text-lg font-semibold whitespace-nowrap text-[#F0F0F0]">Aaliyah's
+                        Collection</span>
+                </a>
+            </div>
+            <div class="flex items-center">
+                <div class="flex items-center ms-3">
+                    <div>
+                        <button type="button"
+                            class="flex text-sm bg-[#F0F0F0] rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                            aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                            <span class="sr-only">Open user menu</span>
+                            <img class="w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}"
+                                alt="user photo">
+                        </button>
+                    </div>
+
+                </div>
+            </div>
         </div>
+    </div>
+</nav>
 
-        <div class="text-center mt-4">
-          <p class="text-[15px] text-[#F0F0F0] font-medium"> {{ Auth::user()->first_name.' '.Auth::user()->last_name }}</p>
-          <p class="text-xs text-[#F0F0F0] mt-0.5"> {{ Auth::user()->email}}</p>
-        </div>
-      </div>
+<aside id="top-bar-sidebar"
+    class="bg-[#004D61] fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
+    aria-label="Sidebar">
+    <div class="h-full px-3 py-5 overflow-y-auto bg-neutral-primary-soft border-e border-default">
+        <a href="https://flowbite.com/" class="flex items-center ps-2.5 mb-5">
+            <img src="{{ asset('images/white_logo.png') }}" class="h-6 me-3" alt="Aaliyah's Collection Logo" />
+            <span class="self-center text-lg text-heading font-semibold whitespace-nowrap">Aaliyah's Collection</span>
+        </a>
+        <ul class="space-y-4 font-medium">
+            <li>
+                <a href="#"
+                    class="flex  text-[#F0F0F0] items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                    <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6.025A7.5 7.5 0 1 0 17.975 14H10V6.025Z" />
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13.5 3c-.169 0-.334.014-.5.025V11h7.975c.011-.166.025-.331.025-.5A7.5 7.5 0 0 0 13.5 3Z" />
+                    </svg>
+                    <span class="ms-3">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="flex text-[#F0F0F0] items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                    <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 5v14M9 5v14M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+                    </svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Categories</span>
 
-      <hr class="mt-6 border-[#F0F0F0]" />
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="flex items-center  text-[#F0F0F0] px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                    <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 10V6a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v4m3-2 .917 11.923A1 1 0 0 1 17.92 21H6.08a1 1 0 0 1-.997-1.077L6 8h12Z" />
+                    </svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="flex items-center text-[#F0F0F0] px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                    <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 13h3.439a.991.991 0 0 1 .908.6 3.978 3.978 0 0 0 7.306 0 .99.99 0 0 1 .908-.6H20M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6M4 13l2-9h12l2 9M9 7h6m-7 3h8" />
+                    </svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Orders</span>
 
-      <ul class="space-y-3 mt-8">
-        <li>
-          <a href="javascript:void(0)"
-            class="text-[#F0F0F0] hover:text-[#F0F0F0] text-[15px] font-normal flex items-center hover:bg-[#822659] rounded px-4 py-2 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-3" viewBox="0 0 24 24">
-              <path
-                d="M19.56 23.253H4.44a4.051 4.051 0 0 1-4.05-4.05v-9.115c0-1.317.648-2.56 1.728-3.315l7.56-5.292a4.062 4.062 0 0 1 4.644 0l7.56 5.292a4.056 4.056 0 0 1 1.728 3.315v9.115a4.051 4.051 0 0 1-4.05 4.05zM12 2.366a2.45 2.45 0 0 0-1.393.443l-7.56 5.292a2.433 2.433 0 0 0-1.037 1.987v9.115c0 1.34 1.09 2.43 2.43 2.43h15.12c1.34 0 2.43-1.09 2.43-2.43v-9.115c0-.788-.389-1.533-1.037-1.987l-7.56-5.292A2.438 2.438 0 0 0 12 2.377z"
-                data-original="#000000"></path>
-              <path
-                d="M16.32 23.253H7.68a.816.816 0 0 1-.81-.81v-5.4c0-2.83 2.3-5.13 5.13-5.13s5.13 2.3 5.13 5.13v5.4c0 .443-.367.81-.81.81zm-7.83-1.62h7.02v-4.59c0-1.933-1.577-3.51-3.51-3.51s-3.51 1.577-3.51 3.51z"
-                data-original="#000000"></path>
-            </svg>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0)"
-            class="text-[#F0F0F0] hover:text-[#F0F0F0] text-[15px] font-normal flex items-center hover:bg-[#822659] rounded px-4 py-2 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-3"
-              viewBox="0 0 512 512">
-              <path
-                d="M437.02 74.98C388.668 26.63 324.379 0 256 0S123.332 26.629 74.98 74.98C26.63 123.332 0 187.621 0 256s26.629 132.668 74.98 181.02C123.332 485.37 187.621 512 256 512s132.668-26.629 181.02-74.98C485.37 388.668 512 324.379 512 256s-26.629-132.668-74.98-181.02zM111.105 429.297c8.454-72.735 70.989-128.89 144.895-128.89 38.96 0 75.598 15.179 103.156 42.734 23.281 23.285 37.965 53.687 41.742 86.152C361.641 462.172 311.094 482 256 482s-105.637-19.824-144.895-52.703zM256 269.507c-42.871 0-77.754-34.882-77.754-77.753C178.246 148.879 213.13 114 256 114s77.754 34.879 77.754 77.754c0 42.871-34.883 77.754-77.754 77.754zm170.719 134.427a175.9 175.9 0 0 0-46.352-82.004c-18.437-18.438-40.25-32.27-64.039-40.938 28.598-19.394 47.426-52.16 47.426-89.238C363.754 132.34 315.414 84 256 84s-107.754 48.34-107.754 107.754c0 37.098 18.844 69.875 47.465 89.266-21.887 7.976-42.14 20.308-59.566 36.542-25.235 23.5-42.758 53.465-50.883 86.348C50.852 364.242 30 312.512 30 256 30 131.383 131.383 30 256 30s226 101.383 226 226c0 56.523-20.86 108.266-55.281 147.934zm0 0"
-                data-original="#000000" />
-            </svg>
-            <span>Categories</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0)"
-            class="text-[#F0F0F0] hover:text-[#F0F0F0] text-[15px] font-normal flex items-center hover:bg-[#822659] rounded px-4 py-2 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-3" viewBox="0 0 24 24">
-              <path
-                d="M18 2c2.206 0 4 1.794 4 4v12c0 2.206-1.794 4-4 4H6c-2.206 0-4-1.794-4-4V6c0-2.206 1.794-4 4-4zm0-2H6a6 6 0 0 0-6 6v12a6 6 0 0 0 6 6h12a6 6 0 0 0 6-6V6a6 6 0 0 0-6-6z"
-                data-original="#000000" />
-              <path d="M12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0v10a1 1 0 0 1-1 1z" data-original="#000000" />
-              <path d="M6 12a1 1 0 0 1 1-1h10a1 1 0 0 1 0 2H7a1 1 0 0 1-1-1z" data-original="#000000" />
-            </svg>
-            <span>Products</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0)"
-            class="text-[#F0F0F0] hover:[#F0F0F0] text-[15px] font-normal flex items-center hover:bg-[#822659] rounded px-4 py-2 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-3"
-              viewBox="0 0 510 510">
-              <g fill-opacity=".9">
-                <path
-                  d="M255 0C114.75 0 0 114.75 0 255s114.75 255 255 255 255-114.75 255-255S395.25 0 255 0zm0 459c-112.2 0-204-91.8-204-204S142.8 51 255 51s204 91.8 204 204-91.8 204-204 204z"
-                  data-original="#000000" />
-                <path d="M267.75 127.5H229.5v153l132.6 81.6 20.4-33.15-114.75-68.85z" data-original="#000000" />
-              </g>
-            </svg>
-            <span>Orders</span>
-          </a>
-        </li>
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="flex items-center text-[#F0F0F0] px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                    <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                            d="M16 19h4a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-2m-2.236-4a3 3 0 1 0 0-4M3 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Profile</span>
+                </a>
+            </li>
 
-      </ul>
-
-      <hr class="my-8 border-[#F0F0F0]" />
-
-      <ul class="space-y-3">
-
-        <li>
-          <a href="{{ route('profile.show') }}"
-            class="text-[#F0F0F0] hover:text-[#F0F0F0] text-[15px] font-normal flex items-center hover:bg-[#822659] rounded px-4 py-2 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-3"
-              viewBox="0 0 512 512">
-              <path
-                d="M437.02 74.98C388.668 26.63 324.379 0 256 0S123.332 26.629 74.98 74.98C26.63 123.332 0 187.621 0 256s26.629 132.668 74.98 181.02C123.332 485.37 187.621 512 256 512s132.668-26.629 181.02-74.98C485.37 388.668 512 324.379 512 256s-26.629-132.668-74.98-181.02zM111.105 429.297c8.454-72.735 70.989-128.89 144.895-128.89 38.96 0 75.598 15.179 103.156 42.734 23.281 23.285 37.965 53.687 41.742 86.152C361.641 462.172 311.094 482 256 482s-105.637-19.824-144.895-52.703zM256 269.507c-42.871 0-77.754-34.882-77.754-77.753C178.246 148.879 213.13 114 256 114s77.754 34.879 77.754 77.754c0 42.871-34.883 77.754-77.754 77.754zm170.719 134.427a175.9 175.9 0 0 0-46.352-82.004c-18.437-18.438-40.25-32.27-64.039-40.938 28.598-19.394 47.426-52.16 47.426-89.238C363.754 132.34 315.414 84 256 84s-107.754 48.34-107.754 107.754c0 37.098 18.844 69.875 47.465 89.266-21.887 7.976-42.14 20.308-59.566 36.542-25.235 23.5-42.758 53.465-50.883 86.348C50.852 364.242 30 312.512 30 256 30 131.383 131.383 30 256 30s226 101.383 226 226c0 56.523-20.86 108.266-55.281 147.934zm0 0"
-                data-original="#000000" />
-            </svg>
-            <span>Profile</span>
-          </a>
-        </li>
-        <li>
-          <a href="{{ route('logout') }}"
-            class="text-[#F0F0F0] hover:text-[#F0F0F0] text-[15px] font-normal flex items-center hover:bg-[#822659] rounded px-4 py-2 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-3"
-              viewBox="0 0 6.35 6.35">
-              <path
-                d="M3.172.53a.265.266 0 0 0-.262.268v2.127a.265.266 0 0 0 .53 0V.798A.265.266 0 0 0 3.172.53zm1.544.532a.265.266 0 0 0-.026 0 .265.266 0 0 0-.147.47c.459.391.749.973.749 1.626 0 1.18-.944 2.131-2.116 2.131A2.12 2.12 0 0 1 1.06 3.16c0-.65.286-1.228.74-1.62a.265.266 0 1 0-.344-.404A2.667 2.667 0 0 0 .53 3.158a2.66 2.66 0 0 0 2.647 2.663 2.657 2.657 0 0 0 2.645-2.663c0-.812-.363-1.542-.936-2.03a.265.266 0 0 0-.17-.066z"
-                data-original="#000000" />
-            </svg>
-            <span>Logout</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+            <li>
+                <a href="#"
+                    class="text-[#F0F0F0] flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                    <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />
+                    </svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>

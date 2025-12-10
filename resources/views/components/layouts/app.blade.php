@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -22,13 +25,18 @@
 <body class="font-sans antialiased bg-[#f8f2ea]">
     <x-banner />
     @include('components.layouts.partials.sidebar')
+
+
     @yield('hero')
-    <main class="container mx-auto px-5 flex grow">
+    <main class="p-4 sm:ml-64 mt-14">
         {{ $slot }}
     </main>
     @stack('modals')
 
     @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+
 </body>
 
 </html>

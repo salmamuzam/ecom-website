@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Livewire\ProductList;
+use App\Livewire\ProductForm;
 //use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,4 @@ Route::middleware([
 // Route::get('/panel', [AdminController::class, 'index'])->name('panel');
 
 Route::get('products', ProductList::class)->name('products');
+Route::get('products/create', ProductForm::class)->name('products.create');
