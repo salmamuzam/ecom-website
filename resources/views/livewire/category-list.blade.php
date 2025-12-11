@@ -127,7 +127,7 @@
                                         Preview
                                     </button>
                                     </a>
-                                    <button type="button" data-drawer-target="drawer-update-product"
+                                    <button href="{{ route('categories.edit', $category->id) }}" wire:navigate type="button" data-drawer-target="drawer-update-product"
                                         data-drawer-show="drawer-update-product" aria-controls="drawer-update-product"
                                         class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-pink-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"

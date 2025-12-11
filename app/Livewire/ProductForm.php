@@ -13,7 +13,7 @@ class ProductForm extends Component
 {
 
     use WithFileUploads;
-public $isView = false;
+    public $isView = false;
     public $categories;
 
     #[Validate('required', message: 'Product name is required!')]
@@ -45,20 +45,33 @@ public $isView = false;
     public $product = null;
     public $imagePath;
 
-    public function mount(Product $product){
+    public function mount(Product $product)
+    {
+
         $this->isView = request()->routeIs('products.view');
-        if($product->id){
-            $this->name = $product ->title;
+        if ($product->id) {
+            $this->name = $product->title;
             $this->category = $product->category_id;
             $this->description = $product->description;
-            $this->price=$product->price;
-       $this->product=$product;
+            $this->price = $product->price;
+            $this->product = $product;
         }
 
     }
 
     public function saveProduct()
     {
+        dd($this->product);
+
+        if ($this->product) {
+            $this->product->name = $name;
+            $this->product->category = $category_id;
+            $this->product->description = $description;
+            $this->product->price = $price;
+        }
+
+
+
         $this->validate();
         $imagePath = null;
 
@@ -116,3 +129,4 @@ public $isView = false;
         return view('livewire.product-form');
     }
 }
+

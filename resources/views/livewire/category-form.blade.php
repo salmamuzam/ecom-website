@@ -23,61 +23,61 @@
                     Name</label>
                 <input type="text" wire:model="name" name="name" id="name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  {{ $isView ? 'disabled' : ' ' }}  placeholder="Type product name">
+                    {{ $isView ? 'disabled' : ' ' }} placeholder="Type product name">
                 @error('name')
                     <p class="mt-2 text-[#822659]">
                         {{$message}}
                     </p>
                 @enderror
             </div>
-@if($category)
-<div class="">
- <label class="block mb-2.5 text-sm font-medium text-heading" for="image">Category Image</label>
+            @if($category)
+                <div class="">
+                    <label class="block mb-2.5 text-sm font-medium text-heading" for="image">Category Image</label>
 
 
-<img src="{{ Storage::url($category->image) }}" class="rounded-lg object-contain  w-100">
+                    <img src="{{ Storage::url($category->image) }}" class="rounded-lg object-contain  w-100">
 
-@endif
-</div>
-@if(!$isView)
-            <div class="mb-4">
+            @endif
+            </div>
+            @if(!$isView)
+                <div class="mb-4">
 
-                <label class="block mb-2.5 text-sm font-medium text-heading" for="image">Category Image</label>
-                <input
-                    class="cursor-pointer bg-gray-50 border border-default-medium text-heading text-sm rounded-lg focus:ring-brand focus:border-brand block w-full shadow-xs placeholder:text-body"
-                    id="image" type="file" wire:model="image">
+                    <label class="block mb-2.5 text-sm font-medium text-heading" for="image">Category Image</label>
+                    <input
+                        class="cursor-pointer bg-gray-50 border border-default-medium text-heading text-sm rounded-lg focus:ring-brand focus:border-brand block w-full shadow-xs placeholder:text-body"
+                        id="image" type="file" wire:model="image">
 
-                {{-- Preview image --}}
-                @endif
+                    {{-- Preview image --}}
+            @endif
                 @if($image)
                     <div class="my-2">
                         <img src="{{ $image->temporaryUrl() }}" class="object-contain w-200">
                     </div>
 
-                @error('image')
-                                    <p class="mt-2  text-[#822659]"">
-                            {{$message}}
-                       </p>
-                @enderror
+                    @error('image')
+                        <p class="mt-2  text-[#822659]"">
+                                    {{$message}}
+                               </p>
+                    @enderror
 
                 </div> @endif
                  @if(!$isView)
-                <div class=" items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                    <button type="submit"
-                        class=" w-full sm:w-auto justify-center text-white inline-flex bg-[#3E5641] hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Add
-                        Category</button>
+                    <div class=" items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
+                        <button type="submit"
+                            class=" w-full sm:w-auto justify-center text-white inline-flex bg-[#3E5641] hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Add
+                            Category</button>
 
-                    <button data-modal-toggle="createProductModal" type="button"
-                        class="w-full justify-center sm:w-auto text-white inline-flex items-center bg-[#822659] hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
-                        <svg class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewbox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        Discard
-                    </button>
-@endif
+                        <button data-modal-toggle="createProductModal" type="button"
+                            class="w-full justify-center sm:w-auto text-white inline-flex items-center bg-[#822659] hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+                            <svg class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewbox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Discard
+                        </button>
+                @endif
             </div>
 
     </form>
