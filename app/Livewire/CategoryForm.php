@@ -8,6 +8,7 @@ use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
 class CategoryForm extends Component
 {
+    public $isView = false;
     use WithFileUploads;
     #[Validate('required', message: 'Category name is required!')]
     #[Validate('min:3', message: 'Category name must have at least 3 characters!')]
@@ -19,7 +20,17 @@ class CategoryForm extends Component
     #[Validate('mimes:jpg,jpeg,jpg,png,svg,webp', message: 'Valid Image Formats; jpg, jpeg, jpg, png, svg, webp.')]
     #[Validate('max:2048', message: 'Image must not be bigger than 2MB')]
     public $image;
+public $category = null;
 
+    public function mount(Category $category){
+        $this->isView = request()->routeIs('categories.view');
+        if($category->id){
+            $this->name = $category ->name;
+
+       $this->category=$category;
+        }
+
+    }
     public function saveCategory()
     {
         $this->validate();

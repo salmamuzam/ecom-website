@@ -13,7 +13,7 @@ class ProductForm extends Component
 {
 
     use WithFileUploads;
-
+public $isView = false;
     public $categories;
 
     #[Validate('required', message: 'Product name is required!')]
@@ -41,7 +41,21 @@ class ProductForm extends Component
     #[Validate('mimes:jpg,jpeg,png,webp,svg', message: 'Valid image formats: jpg, jpeg, png, webp, svg')]
     #[Validate('max:2048', message: 'Image must not be larger than 2MB!')]
     public $image;
+
+    public $product = null;
     public $imagePath;
+
+    public function mount(Product $product){
+        $this->isView = request()->routeIs('products.view');
+        if($product->id){
+            $this->name = $product ->title;
+            $this->category = $product->category_id;
+            $this->description = $product->description;
+            $this->price=$product->price;
+       $this->product=$product;
+        }
+
+    }
 
     public function saveProduct()
     {

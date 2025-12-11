@@ -24,6 +24,8 @@ Route::middleware([
 
 Route::get('products', ProductList::class)->name('products');
 Route::get('products/create', ProductForm::class)->name('products.create');
+Route::get('products/{product}/view', ProductForm::class)->name('products.view');
 
 Route::get('categories', CategoryList::class)->name('categories');
 Route::get('categories/create', CategoryForm::class)->name('categories.create');
+Route::get('categories/{category}/view', CategoryForm::class)->name('categories.view');
