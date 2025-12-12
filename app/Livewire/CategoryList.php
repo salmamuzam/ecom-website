@@ -6,18 +6,32 @@ use App\Models\Category;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use Illuminate\Support\Facades\Storage;
+use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
+
 class CategoryList extends Component
 {
+    use WithPagination, WithoutUrlPagination;
+    
     #[Title('Admin Dashboard | Categories')]
     public $searchCategory = null;
 
     public function fetchCategory()
     {
-        if (empty($this->searchCategory)) {
-            return Category::all();
+        $query = Category::query();
+        
+        if (!empty($this->searchCategory)) {
+            $query->where('name', 'like', '%' . $this->searchCategory . '%');
         }
-        return Category::where('name', 'like', '%' . $this->searchCategory . '%')->get();
+        
+        return $query->orderBy('id', 'DESC')->paginate(10);
     }
+    
+    public function updatedSearchCategory()
+    {
+        $this->resetPage();
+    }
+    
     public function render()
     {
         $categories = $this->fetchCategory();
