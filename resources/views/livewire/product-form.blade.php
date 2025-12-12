@@ -78,6 +78,30 @@
                 @enderror
 
 </div>
+
+{{-- Image upload for NEW product --}}
+@if(!$product && !$isView)
+    <div class="mb-4">
+        <label class="block mb-2.5 text-sm font-medium text-heading" for="image">Product Image</label>
+        <input
+            class="cursor-pointer bg-gray-50 border border-default-medium text-heading text-sm rounded-lg focus:ring-brand focus:border-brand block w-full shadow-xs placeholder:text-body"
+            id="image" type="file" wire:model="image">
+        
+        {{-- Preview image --}}
+        @if($image)
+            <div class="my-2">
+                <img src="{{ $image->temporaryUrl() }}" class="rounded-lg object-contain h-100 w-100">
+            </div>
+        @endif
+        @error('image')
+            <p class="mt-2 text-[#822659]">
+                {{$message}}
+            </p>
+        @enderror
+    </div>
+@endif
+
+{{-- Image upload for EXISTING product --}}
 @if($product)
      <label class=" block mb-2.5 text-sm font-medium text-heading" for="image">Product Image</label>
                     <div class="my-2">
