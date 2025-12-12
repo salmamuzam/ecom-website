@@ -12,26 +12,38 @@ use Livewire\WithoutUrlPagination;
 class CategoryList extends Component
 {
     use WithPagination, WithoutUrlPagination;
-    
+
     #[Title('Admin Dashboard | Categories')]
     public $searchCategory = null;
+    public $sortColumn = 'id';
+    public $sortOrder = 'desc';
+
+    public function sortBy($column)
+    {
+        if ($this->sortColumn === $column) {
+            $this->sortOrder = $this->sortOrder === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortColumn = $column;
+            $this->sortOrder = 'asc';
+        }
+    }
 
     public function fetchCategory()
     {
         $query = Category::query();
-        
+
         if (!empty($this->searchCategory)) {
             $query->where('name', 'like', '%' . $this->searchCategory . '%');
         }
-        
-        return $query->orderBy('id', 'DESC')->paginate(10);
+
+        return $query->orderBy($this->sortColumn, $this->sortOrder)->paginate(10);
     }
-    
+
     public function updatedSearchCategory()
     {
         $this->resetPage();
     }
-    
+
     public function render()
     {
         $categories = $this->fetchCategory();

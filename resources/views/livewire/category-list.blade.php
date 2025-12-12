@@ -80,7 +80,26 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="p-4 w-24">Image</th>
-                        <th scope="col" class="p-4">Category</th>
+                        <th scope="col" class="p-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700" wire:click="sortBy('name')">
+                            <div class="flex items-center">
+                                Category
+                                @if($sortColumn === 'name')
+                                    @if($sortOrder === 'asc')
+                                        <svg class="w-4 h-4 ml-1 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>
+                                        </svg>
+                                    @else
+                                        <svg class="w-4 h-4 ml-1 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                        </svg>
+                                    @endif
+                                @else
+                                    <svg class="w-4 h-4 ml-1 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M5 12a1 1 0 102 0V6.414l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L5 6.414V12zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z"/>
+                                    </svg>
+                                @endif
+                            </div>
+                        </th>
                         <th scope="col" class="p-4 w-40 text-right">Action</th>
                     </tr>
                 </thead>
@@ -208,6 +227,10 @@
                     No categories found
                 </div>
             @endforelse
+        </div>
+        
+        <div class="p-4">
+            {{ $categories->links() }}
         </div>
     </div>
 
