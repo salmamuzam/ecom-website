@@ -13,9 +13,17 @@ class ProductList extends Component
 {
     use WithPagination, WithoutUrlPagination;
     public $searchProduct = null;
-    #[Title('Admin Dashboard | Products')] public function render()
+    public $activePageNumber = 1;
+
+    public function fetchProducts()
     {
         $products = Product::where('title', 'like', '%' . $this->searchProduct . '%')->orderBy('id', 'DESC')->paginate(5);
+        return $products;
+    }
+    #[Title('Admin Dashboard | Products')]
+    public function render()
+    {
+        $products = $this->fetchProducts();
         return view('livewire.product-list', compact('products'));
     }
 
@@ -38,7 +46,17 @@ class ProductList extends Component
         } else {
             session()->flash('error', 'Product not found, please try again!');
         }
-        return $this->redirect('/products', navigate: true);
-
+        $products = $this->fetchProducts();
+        if ($products->isEmpty() && $this->activePageNumber > 1) {
+            $this->gotoPage($this->activePageNumber - 1);
+            //return $this->redirect('/products', navigate: true);
+        } else {
+            $this->gotoPage($this->activePageNumber);
+        }
+    }
+    // Track active page from pagination
+    public function updatingPage($pageNumber)
+    {
+        $this->activePageNumber = $pageNumber;
     }
 }

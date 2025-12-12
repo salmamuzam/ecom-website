@@ -9,15 +9,19 @@ use Illuminate\Support\Facades\Storage;
 class CategoryList extends Component
 {
     #[Title('Admin Dashboard | Categories')]
-    public $categories;
-    public function mount()
+    public $searchCategory = null;
+
+    public function fetchCategory()
     {
-        $this->categories = Category::all();
+        if (empty($this->searchCategory)) {
+            return Category::all();
+        }
+        return Category::where('name', 'like', '%' . $this->searchCategory . '%')->get();
     }
     public function render()
     {
-
-        return view('livewire.category-list');
+        $categories = $this->fetchCategory();
+        return view('livewire.category-list', compact('categories'));
     }
 
     public function deleteCategory(category $category)
